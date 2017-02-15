@@ -13,9 +13,13 @@ class VinhoCell: UITableViewCell {
     @IBOutlet weak var wineCategory: UILabel!
     @IBOutlet weak var winePhoto: UIImageView!
     
+    var categoria = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.wineCategory.text = categoria
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -43,12 +43,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let nome = self.types[indexPath.row]
-       // let photo = photos[indexPath.row]
+        let photo = photos[indexPath.row]
         
-        let detail = storyboard?.instantiateViewController(withIdentifier: "winedetail") as! DetailViewController
-        //detail.wineImage = photo?.images[indexPath.row]
-        detail.wineNameLbl.text = nome
-        navigationController?.pushViewController(detail, animated: true)
+        let detail = self.storyboard?.instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
+        detail.theImagePassed = photo
+        detail.nameWine = nome
+        
+        self.present(detail, animated: true, completion: nil)
         
     }
 

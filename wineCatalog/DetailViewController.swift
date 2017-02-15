@@ -14,16 +14,17 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var wineNameLbl: UILabel!
     
-    var theImagePassed : UIImage!
+    var theImagePassed : UIImage?
     
-    var nameWine = ""
+    var nameWine : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.wineNameLbl.text = nameWine
         
-       //wineImage.image = theImagePassed
+        wineNameLbl.text = nameWine
+        
+        wineImage.image = theImagePassed
 
         // Do any additional setup after loading the view.
     }
@@ -31,6 +32,10 @@ class DetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
     
 
