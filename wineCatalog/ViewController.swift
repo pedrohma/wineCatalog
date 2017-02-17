@@ -18,6 +18,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+    }
+    
+    
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if  segue.identifier == "detailViewController",
+            let destination = segue.destination as? DetailViewController,
+            let wineIndex = tableView.indexPathForSelectedRow?.row
+        {
+            destination.nameWine = types[wineIndex]
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +46,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "vinhocell", for: indexPath) as! VinhoCell
         
         cell.winePhoto.image = photos[indexPath.row]
-        cell.wineCategory.text = types[indexPath.row]
 
         return cell
         
@@ -49,7 +60,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         detail.theImagePassed = photo
         detail.nameWine = nome
         
-        self.present(detail, animated: true, completion: nil)
+        navigationController?.pushViewController(detail, animated: true)
+        
+//        let testeViwControlelr = TesteViewController()
+//        navigationController?.present(testeViwControlelr, animated: true, completion: nil)
         
     }
 
