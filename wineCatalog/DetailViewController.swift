@@ -8,23 +8,42 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var wineImage: UIImageView!
     
     @IBOutlet weak var wineNameLbl: UILabel!
     
-    var theImagePassed : UIImage?
+    @IBOutlet weak var countryFlag: UILabel!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var nameWine : String?
     
+    var countryPassed : [String]?
+    
+    var theImagePassed : UIImage?
+    
+    var imageMatchesPassed : [UIImage?] = []
+    
+    var countryFinal : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let joiner = ""
+        let elements = countryPassed
+        let joinedStrings = elements?.joined(separator: joiner)
+        
+        let base: UInt32 = 127397
+        
+        countryFinal = joinedStrings?.unicodeScalars.flatMap { String.init(UnicodeScalar(base + $0.value)!) }.joined()
         
         wineNameLbl.text = nameWine
         
         wineImage.image = theImagePassed
         
+        countryFlag.text = countryFinal
 
         // Do any additional setup after loading the view.
     }
@@ -37,7 +56,20 @@ class DetailViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
        super.viewDidAppear(animated)
     }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return imageMatchesPassed.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "matchesCell", for: indexPath) as! MatchesViewCell
+        
+        cell.imagemMatches.image = imageMatchesPassed[indexPath.row]
+        
+        return cell
+        
+    }
 
     /*
     // MARK: - Navigation
@@ -50,3 +82,4 @@ class DetailViewController: UIViewController {
     */
 
 }
+

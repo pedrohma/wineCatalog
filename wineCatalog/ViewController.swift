@@ -15,10 +15,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var photos = [UIImage(named: "cabernet"), UIImage(named: "malbec"),UIImage(named: "merlot"),UIImage(named: "tannat"),UIImage(named: "pinotnoir"),UIImage(named: "chardonnay"),]
     
+    var countries = [["FR"], ["FR"], ["FR", "US", "CL", "AU"], ["UY"], ["FR", "US", "NZ", "CL", "DE", "RO", "ZA"], ["Worldwide"]] as [[String]]
+    
+    var matchesImage = [[UIImage(named: "steak")!], [UIImage(named: "steak")!]] as [[UIImage]]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         
     }
     
@@ -50,15 +53,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
         
     }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        var arrayCountries : [String]?
+        var arrayImageMatches : [UIImage]?
+        
         let nome = self.types[indexPath.row]
-        let photo = photos[indexPath.row]
+        let photo = self.photos[indexPath.row]
+        arrayCountries = self.countries[indexPath.row]
+        arrayImageMatches = self.matchesImage[indexPath.row]
         
         let detail = self.storyboard?.instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
         detail.theImagePassed = photo
         detail.nameWine = nome
+        detail.countryPassed = arrayCountries
+        detail.imageMatchesPassed = arrayImageMatches!
         
         navigationController?.pushViewController(detail, animated: true)
         
