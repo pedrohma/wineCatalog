@@ -17,12 +17,13 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var countryFlag: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
+    // essa é a table view do Matches
     
     var nameWine : String?
     
     var countryPassed : [String]?
     
-    var theImagePassed : UIImage?
+    var wineImagePassed : UIImage?
     
     var imageMatchesPassed : [UIImage?] = []
     
@@ -45,7 +46,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         wineNameLbl.text = nameWine
         
-        wineImage.image = theImagePassed
+        wineImage.image = wineImagePassed
         
         countryFlag.text = countryFinal
 

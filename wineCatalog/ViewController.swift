@@ -66,7 +66,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         arrayImageMatches = self.matchesImage[indexPath.row]
         
         let detail = self.storyboard?.instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
-        detail.theImagePassed = photo
+        detail.wineImagePassed = photo
         detail.nameWine = nome
         detail.countryPassed = arrayCountries
         detail.imageMatchesPassed = arrayImageMatches!
