@@ -31,6 +31,10 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.allowsSelection = false;
+        
         let joiner = ""
         let elements = countryPassed
         let joinedStrings = elements?.joined(separator: joiner)
@@ -55,6 +59,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidAppear(_ animated: Bool) {
        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,7 +68,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "matchesCell", for: indexPath) as! MatchesViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "wineMatchesDetails", for: indexPath) as! MatchesViewCell
         
         cell.imagemMatches.image = imageMatchesPassed[indexPath.row]
         
