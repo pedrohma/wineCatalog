@@ -11,7 +11,10 @@ import UIKit
 class MatchesViewCell: UITableViewCell {
 
     @IBOutlet weak var matchesTxt: UILabel!
+    
     @IBOutlet weak var imagemMatches: UIImageView!
+    
+    @IBOutlet weak var detailsMatches: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

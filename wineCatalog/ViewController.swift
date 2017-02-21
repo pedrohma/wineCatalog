@@ -17,7 +17,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var countries = [["FR"], ["FR"], ["FR", "US", "CL", "AU"], ["UY"], ["FR", "US", "NZ", "CL", "DE", "RO", "ZA"], ["Worldwide"]] as [[String]]
     
-    var matchesImage = [[UIImage(named: "steak")!], [UIImage(named: "steak")!]] as [[UIImage]]
+    var matchesImage = [[UIImage(named: "steak")!, UIImage(named: "cheese")!], [UIImage(named: "steak")!]] as [[UIImage]]
+    
+    var matchesImageText = [["Steak", "Cheese"]] as [[String]]
+    
+    var detailsMatches = [["", "Especially aromatic ones like Roquefort, Blue and Camembert varietals"]] as [[String]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,17 +63,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         var arrayCountries : [String]?
         var arrayImageMatches : [UIImage]?
+        var arrayTextImagesMatches : [String]?
+        var arrayDetailsMatches : [String]?
         
         let nome = self.types[indexPath.row]
         let photo = self.photos[indexPath.row]
         arrayCountries = self.countries[indexPath.row]
         arrayImageMatches = self.matchesImage[indexPath.row]
+        arrayTextImagesMatches = self.matchesImageText[indexPath.row]
+        arrayDetailsMatches = self.detailsMatches[indexPath.row]
         
         let detail = self.storyboard?.instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
         detail.wineImagePassed = photo
         detail.nameWine = nome
         detail.countryPassed = arrayCountries
         detail.imageMatchesPassed = arrayImageMatches!
+        detail.imageMatchesTextPassed = arrayTextImagesMatches
+        detail.detailMatchesTextPassed = arrayDetailsMatches
+        
         
         navigationController?.pushViewController(detail, animated: true)
         

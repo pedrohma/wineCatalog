@@ -29,6 +29,10 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     var countryFinal : String?
     
+    var imageMatchesTextPassed : [String]?
+    
+    var detailMatchesTextPassed : [String]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,6 +76,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "wineMatchesDetails", for: indexPath) as! MatchesViewCell
         
         cell.imagemMatches.image = imageMatchesPassed[indexPath.row]
+        cell.matchesTxt.text = imageMatchesTextPassed?[indexPath.row]
+        cell.detailsMatches.text = detailMatchesTextPassed?[indexPath.row]
         
         return cell
         
