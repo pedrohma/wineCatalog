@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().barTintColor = hexStringToUIColor(hex: "#e5e5e5")
         UITabBar.appearance().tintColor = hexStringToUIColor(hex: "#938eb6")
+        UINavigationBar.appearance().tintColor = hexStringToUIColor(hex: "#938eb6")
         return true
     }
     
