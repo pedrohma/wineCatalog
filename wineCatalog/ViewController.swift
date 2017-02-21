@@ -17,11 +17,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var countries = [["FR"], ["FR"], ["FR", "US", "CL", "AU"], ["UY"], ["FR", "US", "NZ", "CL", "DE", "RO", "ZA"], ["Worldwide"]] as [[String]]
     
-    var matchesImage = [[UIImage(named: "steak")!, UIImage(named: "cheese")!], [UIImage(named: "steak")!]] as [[UIImage]]
+    var matchesImage = [[UIImage(named: "steak")!, UIImage(named: "cheese")!,UIImage(named: "roasted-eggplant")!, UIImage(named: "lentils")!, UIImage(named: "lamb-steak")!, UIImage(named: "mint")!, UIImage(named: "mustard")!, UIImage(named: "potato")!, UIImage(named: "pasta-dishes")!], [UIImage(named: "steak")!]] as [[UIImage]]
     
-    var matchesImageText = [["Steak", "Cheese"]] as [[String]]
+    var matchesImageText = [["Steak", "Cheese", "Roasted Eggplant", "Lentils", "Lamb Steak", "Mint", "Mustard", "Potato", "Pasta Dishes"]] as [[String]]
     
-    var detailsMatches = [["", "Especially aromatic ones like Roquefort, Blue and Camembert varietals"]] as [[String]]
+    var detailsMatches = [["Especially Grilled, Roasted or Stewed", "Especially aromatic ones like Roquefort, Blue and Camembert varietals", "", "", "Especially roasted or Rack of Lamb", "", "", "", "Especially with Cream Sauces"]] as [[String]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
