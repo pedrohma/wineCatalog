@@ -40,6 +40,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.allowsSelection = false;
         
+        self.navigationItem.title = nameWine
+        
         let joiner = ""
         let elements = countryPassed
         let joinedStrings = elements?.joined(separator: joiner)
