@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B3001B541E57E629007DB20C /* MatchesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3001B531E57E628007DB20C /* MatchesViewCell.swift */; };
+		B3001B581E5C1724007DB20C /* Wine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3001B571E5C1724007DB20C /* Wine.swift */; };
 		B3DE876D1E53BD2A00AF3EF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DE876C1E53BD2A00AF3EF2 /* AppDelegate.swift */; };
 		B3DE876F1E53BD2A00AF3EF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DE876E1E53BD2A00AF3EF2 /* ViewController.swift */; };
 		B3DE87721E53BD2A00AF3EF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DE87701E53BD2A00AF3EF2 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		B3001B531E57E628007DB20C /* MatchesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewCell.swift; sourceTree = "<group>"; };
+		B3001B571E5C1724007DB20C /* Wine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wine.swift; sourceTree = "<group>"; };
 		B3DE87691E53BD2A00AF3EF2 /* wineCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wineCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DE876C1E53BD2A00AF3EF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3DE876E1E53BD2A00AF3EF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				B3DE87751E53BD2A00AF3EF2 /* LaunchScreen.storyboard */,
 				B3DE87781E53BD2A00AF3EF2 /* Info.plist */,
 				B3001B531E57E628007DB20C /* MatchesViewCell.swift */,
+				B3001B571E5C1724007DB20C /* Wine.swift */,
 			);
 			path = wineCatalog;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			files = (
 				B3DE876F1E53BD2A00AF3EF2 /* ViewController.swift in Sources */,
 				B3DE876D1E53BD2A00AF3EF2 /* AppDelegate.swift in Sources */,
+				B3001B581E5C1724007DB20C /* Wine.swift in Sources */,
 				B3001B541E57E629007DB20C /* MatchesViewCell.swift in Sources */,
 				B3DE879B1E5438AA00AF3EF2 /* VinhoCell.swift in Sources */,
 				B3DE879D1E544E5800AF3EF2 /* DetailViewController.swift in Sources */,

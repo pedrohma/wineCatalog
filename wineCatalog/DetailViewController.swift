@@ -48,7 +48,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         let base: UInt32 = 127397
         
-        countryFinal = joinedStrings?.unicodeScalars.flatMap { String.init(UnicodeScalar(base + $0.value)!) }.joined()
+        if(countryFinal != ""){
+            countryFinal = joinedStrings?.unicodeScalars.flatMap { String.init(UnicodeScalar(base + $0.value)!) }.joined()
+        }
+        else{
+            countryFinal = "🌐"
+        }
         
         wineNameLbl.text = nameWine
         
