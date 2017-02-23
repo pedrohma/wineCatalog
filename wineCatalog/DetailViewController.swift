@@ -18,6 +18,10 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     // essa é a table view do Matches
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    var timer : Timer!
+    var updateCounter : Int!
     
     var nameWine : String?
     
@@ -33,12 +37,16 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     var detailMatchesTextPassed : [String]?
     
+    var teste : [UIImage] = [UIImage(named: "chardonnay")!, UIImage(named: "pinotnoir")!, UIImage(named: "tannat")!]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false;
+        
+        updateCounter = 0
         
         self.navigationItem.title = nameWine
         
@@ -57,12 +65,27 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         wineNameLbl.text = nameWine
         
-        wineImage.image = wineImagePassed
-        
         countryFlag.text = countryFinal
+        
+        wineImage.image = teste[updateCounter]
+        
+        timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(DetailViewController.updateTimer), userInfo: nil, repeats: true)
 
         // Do any additional setup after loading the view.
     }
+    
+    internal func updateTimer(){
+        if(updateCounter <= 2){
+            pageControl.currentPage = updateCounter
+            wineImage.image = teste[updateCounter]
+            updateCounter = updateCounter + 1
+        }
+        else{
+            updateCounter = 0;
+        }
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
