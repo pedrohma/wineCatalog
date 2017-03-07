@@ -9,8 +9,6 @@
 import UIKit
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet weak var wineImage: UIImageView!
     
     @IBOutlet weak var wineNameLbl: UILabel!
     
@@ -18,35 +16,52 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     // essa é a table view do Matches
-    @IBOutlet weak var pageControl: UIPageControl!
-    
-    var timer : Timer!
-    var updateCounter : Int!
-    
     var nameWine : String?
     
     var countryPassed : [String]?
     
     var wineImagePassed : UIImage?
     
-    var imageMatchesPassed : [UIImage?] = []
-    
     var countryFinal : String?
+    
+    var imageMatchesPassed : [UIImage?] = []
     
     var imageMatchesTextPassed : [String]?
     
     var detailMatchesTextPassed : [String]?
     
-    var teste : [UIImage] = [UIImage(named: "chardonnay")!, UIImage(named: "pinotnoir")!, UIImage(named: "tannat")!]
+    var imageNotMatchesPassed : [UIImage?] = []
     
+    var imageNotMatchesTextPassed : [String]?
+    
+    var detailNotMatchesTextPassed : [String]?
+    
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    
+    @IBOutlet weak var oi: UIImageView!
+    @IBOutlet weak var titulo: UILabel!
+    
+    @IBOutlet weak var detalhe: UILabel!
+    
+    var timer : Timer!
+    var update : Int!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        update = 0
+        
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(DetailViewController.updateTimer), userInfo: nil, repeats: true)
+        detalhe.lineBreakMode = NSLineBreakMode.byWordWrapping
+        
+        pageControl.numberOfPages = imageMatchesPassed.count
+        pageControl.currentPageIndicatorTintColor = hexStringToUIColor(hex: "#702963")
+        
+        detalhe.numberOfLines = 3
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false;
-        
-        updateCounter = 0
         
         self.navigationItem.title = nameWine
         
@@ -67,25 +82,48 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         countryFlag.text = countryFinal
         
-        wineImage.image = teste[updateCounter]
-        
-        timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(DetailViewController.updateTimer), userInfo: nil, repeats: true)
-
+        oi.image = imageNotMatchesPassed[update]
+        titulo.text = imageNotMatchesTextPassed?[update]
+        detalhe.text = detailNotMatchesTextPassed?[update]
         // Do any additional setup after loading the view.
+        
     }
     
     internal func updateTimer(){
-        if(updateCounter <= 2){
-            pageControl.currentPage = updateCounter
-            wineImage.image = teste[updateCounter]
-            updateCounter = updateCounter + 1
+        if(update < imageNotMatchesPassed.count){
+            pageControl.currentPage = update
+            oi.image = imageNotMatchesPassed[update]
+            titulo.text = imageNotMatchesTextPassed?[update]
+            detalhe.text = detailNotMatchesTextPassed?[update]
+            update = update + 1
         }
         else{
-            updateCounter = 0;
+            update = 0
         }
     }
     
-    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -98,11 +136,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return imageMatchesPassed.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+            
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "wineMatchesDetails", for: indexPath) as! MatchesViewCell
         
         cell.imagemMatches.image = imageMatchesPassed[indexPath.row]
@@ -110,8 +149,10 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         cell.detailsMatches.text = detailMatchesTextPassed?[indexPath.row]
         
         return cell
-        
+
     }
+
+    
 
     /*
     // MARK: - Navigation

@@ -18,6 +18,9 @@ class MatchesViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        detailsMatches.lineBreakMode = NSLineBreakMode.byWordWrapping
+        detailsMatches.numberOfLines = 3
         // Initialization code
     }
 

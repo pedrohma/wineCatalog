@@ -10,7 +10,8 @@ import UIKit
 
 class VinhoCell: UITableViewCell {
 
-    @IBOutlet weak var winePhoto: UIImageView!
+    @IBOutlet weak var categoryPhoto: UIImageView!
+    @IBOutlet weak var category: UILabel!
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
