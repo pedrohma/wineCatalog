@@ -13,11 +13,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var arrayWines : [Wine] = []
     
-    let searchBar = UISearchBar()
-    
-    var filteredArray : [String] = []
-    var shouldShowSearchResults = false
-    
     func allWines() -> [Wine] {
         
         let carbenet = Wine(category: "Cabernet Sauvignon", principalPhoto: UIImage(named: "cabernet")!, countries: ["FR"], matchesImage: [UIImage(named: "steak")!, UIImage(named: "cheese")!,UIImage(named: "roasted-eggplant")!, UIImage(named: "lentils")!, UIImage(named: "lamb-steak")!, UIImage(named: "mint")!, UIImage(named: "mustard")!, UIImage(named: "potato")!, UIImage(named: "pasta-dishes")!], matchesText: ["Steak", "Cheese", "Roasted Eggplant", "Lentils", "Lamb Steak", "Mint", "Mustard", "Potato", "Pasta Dishes"], matchesDetails: ["Especially Grilled, Roasted or Stewed", "Especially aromatic ones like Roquefort, Blue and Camembert varietals", "", "", "Especially roasted or Rack of Lamb", "", "", "", "Especially with Cream Sauces"], notMatchesImage: [UIImage(named: "salmon")!, UIImage(named: "shrimp")!, UIImage(named: "oysters")!, UIImage(named: "pepper")!], notMatchesText: ["Salmon", "Shrimp", "Oysters", "Chilly"], notMatchesDetails: ["It's not recommend with any kind of sushi", "", "", "It's not recommended with spicy dishes"])
@@ -50,30 +45,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         arrayWines = allWines()
         
-        filteredArray = allMatches()
-        
-        createSearchBar()
-        
     }
-    
-    func createSearchBar(){
-        let searchBar = UISearchBar()
-        searchBar.showsCancelButton = false
-        searchBar.placeholder = "Enter your search here..."
-        searchBar.delegate = self
-        
-        self.navigationItem.titleView = searchBar
-    }
-    
-    func allMatches() -> [String]{
-        
-        for i in arrayWines{
-            for j in i.matchesText{
-                filteredArray.append(j)
-            }
-        }
-        return filteredArray
-    }
+
     
     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if  segue.identifier == "detailViewController",
@@ -90,58 +63,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if shouldShowSearchResults
-        {
-            return filteredArray.count
-        }
-        else{
             return arrayWines.count
-        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "vinhocell", for: indexPath) as! VinhoCell
         
-        if shouldShowSearchResults{
-            cell.category.text = filteredArray[indexPath.row]
-            return cell
-        }
-        else{
             cell.category.text = arrayWines[indexPath.row].category
             cell.categoryPhoto.image = arrayWines[indexPath.row].principalPhoto
-            return cell
-        }
         
-    }
-    
-    
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        searchBar.endEditing(true)
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        shouldShowSearchResults = true
-        searchBar.endEditing(true)
-        self.tableView.reloadData()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredArray = filteredArray.filter({ (names: String) -> Bool in
-            return names.lowercased().range(of: searchText.lowercased()) != nil
-        })
-        
-        if (searchText != "") {
-            shouldShowSearchResults = true
-            self.tableView.reloadData()
-        }
-        else{
-            shouldShowSearchResults = false
-            self.tableView.reloadData()
-        }
+        return cell
         
     }
 
@@ -162,8 +95,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         navigationController?.pushViewController(detail, animated: true)
         
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    
 
 
 }

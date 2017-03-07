@@ -51,13 +51,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         update = 0
         
-        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(DetailViewController.updateTimer), userInfo: nil, repeats: true)
-        detalhe.lineBreakMode = NSLineBreakMode.byWordWrapping
-        
-        pageControl.numberOfPages = imageMatchesPassed.count
-        pageControl.currentPageIndicatorTintColor = hexStringToUIColor(hex: "#702963")
-        
-        detalhe.numberOfLines = 3
+        populatePageControl()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -87,6 +81,16 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         detalhe.text = detailNotMatchesTextPassed?[update]
         // Do any additional setup after loading the view.
         
+    }
+    
+    func populatePageControl(){
+        detalhe.lineBreakMode = NSLineBreakMode.byWordWrapping
+        detalhe.numberOfLines = 3
+        
+        pageControl.numberOfPages = imageNotMatchesPassed.count
+        pageControl.currentPageIndicatorTintColor = hexStringToUIColor(hex: "#702963")
+        
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(DetailViewController.updateTimer), userInfo: nil, repeats: true)
     }
     
     internal func updateTimer(){
