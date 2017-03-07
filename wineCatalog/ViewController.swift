@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate  {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     @IBOutlet weak var tableView: UITableView!
     
     var arrayWines : [Wine] = []
@@ -28,9 +28,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let chardonnay = Wine(category: "Chardonnay", principalPhoto: UIImage(named: "chardonnay")!, countries: ["🌐"], matchesImage: [UIImage(named: "chicken")!, UIImage(named: "pasta-dishes")!, UIImage(named: "salad")!], matchesText: ["Chicken", "Pasta", "Salad"], matchesDetails: ["", "Pastas in general", ""], notMatchesImage: [UIImage(named: "fishes")!, UIImage(named: "steak")!, UIImage(named: "cheese")!, UIImage(named: "salmon")!, UIImage(named: "tomato")!], notMatchesText: ["Fishes", "Steak", "Cheese", "Salmon", "Tomatoes"], notMatchesDetails: ["Not good as smoked fishes", "Not good as smoked steak", "Light fresh cheeses such as goat or sheeps cheeses", "", ""])
         
         arrayWines.append(carbenet)
-        arrayWines.append(malbec)
         arrayWines.append(merlot)
         arrayWines.append(tannat)
+        arrayWines.append(malbec)
         arrayWines.append(pinot)
         arrayWines.append(chardonnay)
         

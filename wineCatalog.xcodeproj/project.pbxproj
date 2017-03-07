@@ -18,6 +18,9 @@
 		B3DE878D1E53BD2A00AF3EF2 /* wineCatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DE878C1E53BD2A00AF3EF2 /* wineCatalogUITests.swift */; };
 		B3DE879B1E5438AA00AF3EF2 /* VinhoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DE879A1E5438AA00AF3EF2 /* VinhoCell.swift */; };
 		B3DE879D1E544E5800AF3EF2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DE879C1E544E5800AF3EF2 /* DetailViewController.swift */; };
+		B3FD36561E6E5DF1002F5500 /* DeveloperViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD36551E6E5DF1002F5500 /* DeveloperViewCell.swift */; };
+		B3FD36581E6E5E83002F5500 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD36571E6E5E83002F5500 /* SettingsViewController.swift */; };
+		B3FD365A1E6E6030002F5500 /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD36591E6E6030002F5500 /* Developer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		B3DE878E1E53BD2A00AF3EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3DE879A1E5438AA00AF3EF2 /* VinhoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VinhoCell.swift; path = ../VinhoCell.swift; sourceTree = "<group>"; };
 		B3DE879C1E544E5800AF3EF2 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B3FD36551E6E5DF1002F5500 /* DeveloperViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperViewCell.swift; sourceTree = "<group>"; };
+		B3FD36571E6E5E83002F5500 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B3FD36591E6E6030002F5500 /* Developer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,9 @@
 				B3DE87781E53BD2A00AF3EF2 /* Info.plist */,
 				B3001B531E57E628007DB20C /* MatchesViewCell.swift */,
 				B3001B571E5C1724007DB20C /* Wine.swift */,
+				B3FD36551E6E5DF1002F5500 /* DeveloperViewCell.swift */,
+				B3FD36571E6E5E83002F5500 /* SettingsViewController.swift */,
+				B3FD36591E6E6030002F5500 /* Developer.swift */,
 			);
 			path = wineCatalog;
 			sourceTree = "<group>";
@@ -274,12 +283,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3FD365A1E6E6030002F5500 /* Developer.swift in Sources */,
 				B3DE876F1E53BD2A00AF3EF2 /* ViewController.swift in Sources */,
+				B3FD36561E6E5DF1002F5500 /* DeveloperViewCell.swift in Sources */,
 				B3DE876D1E53BD2A00AF3EF2 /* AppDelegate.swift in Sources */,
 				B3001B581E5C1724007DB20C /* Wine.swift in Sources */,
 				B3001B541E57E629007DB20C /* MatchesViewCell.swift in Sources */,
 				B3DE879B1E5438AA00AF3EF2 /* VinhoCell.swift in Sources */,
 				B3DE879D1E544E5800AF3EF2 /* DetailViewController.swift in Sources */,
+				B3FD36581E6E5E83002F5500 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
