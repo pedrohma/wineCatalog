@@ -18,8 +18,6 @@ class Developer {
         self.photo = photo
         self.name = name
         self.details = details
-        
     }
-    
 
 }

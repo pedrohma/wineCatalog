@@ -11,18 +11,13 @@ import UIKit
 class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nameForm: UITextField!
+    @IBOutlet weak var messageForm: UITextField!
+    @IBOutlet weak var emailForm: UITextField!
     
     var developers : [Developer] = []
-    
-    func loadDevelopers() -> [Developer]{
-        let pedro = Developer(photo: UIImage(named:"pedro")!, name: "Pedro Henrique de Miranda Arthur", details: "pedrohma95@gmail.com")
-        let joao = Developer(photo: UIImage(named:"joao")!, name: "João Henrique Arruda", details: "jojoba@teste.com")
-        
-        developers.append(pedro)
-        developers.append(joao)
-        
-        return developers
-    }
+    var timer: Timer!
+    var countdown: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +26,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         tableView.delegate = self
         tableView.dataSource = self
-
+        
         tableView.allowsSelection = false;
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,6 +51,41 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         return cell
         
+    }
+    
+    func loadDevelopers() -> [Developer]{
+        let pedro = Developer(photo: UIImage(named:"pedro")!, name: "Pedro Henrique de Miranda Arthur", details: "pedrohma95@gmail.com")
+        let joao = Developer(photo: UIImage(named:"joao")!, name: "João Henrique da Silva Arruda", details: "jojoba@teste.com")
+        
+        developers.append(pedro)
+        developers.append(joao)
+        
+        return developers
+    }
+
+    @IBAction func sendMail(_ sender: Any) {
+        self.countdown = 5
+        
+        let name = nameForm.text
+        let email = emailForm.text
+        let message = messageForm.text
+        
+        let alert : UIAlertController
+        
+        if((name?.isEmpty)! || (email?.isEmpty)! || (message?.isEmpty)!){
+            alert = UIAlertController(title: "Error", message: "All the fields must be filled!", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else{
+            alert = UIAlertController(title: "Success", message: "Thanks for your message " + name! + " !", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            nameForm.text = nil
+            emailForm.text = nil
+            messageForm.text = nil
+        }
+
     }
 
     /*
