@@ -57,8 +57,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.allowsSelection = false;
         
-        self.navigationItem.title = nameWine
-        
         let joiner = ""
         let elements = countryPassed
         let joinedStrings = elements?.joined(separator: joiner)
@@ -88,7 +86,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         detalhe.numberOfLines = 3
         
         pageControl.numberOfPages = imageNotMatchesPassed.count
-        pageControl.currentPageIndicatorTintColor = hexStringToUIColor(hex: "#702963")
+        pageControl.pageIndicatorTintColor = UIColor.white
+        pageControl.currentPageIndicatorTintColor = hexStringToUIColor(hex: "#b206c7")
         
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(DetailViewController.updateTimer), userInfo: nil, repeats: true)
     }

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings-->
+        <!--About-->
         <scene sceneID="ZAN-ea-dqy">
             <objects>
                 <viewController id="a9b-Wz-Uqa" customClass="SettingsViewController" customModule="wineCatalog" customModuleProvider="target" sceneMemberID="viewController">
@@ -191,8 +191,8 @@
                             <constraint firstItem="LSj-EK-EM4" firstAttribute="top" secondItem="iDn-SD-nEL" secondAttribute="bottom" constant="19" id="xau-s0-S6k"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="0Rw-dn-191">
-                        <inset key="imageInsets" minX="2" minY="2" maxX="2" maxY="2"/>
+                    <tabBarItem key="tabBarItem" title="About" image="information" id="0Rw-dn-191">
+                        <inset key="imageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="gXy-0r-Rv0"/>
                     <connections>
@@ -549,7 +549,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="settings" width="25" height="25"/>
+        <image name="information" width="25" height="25"/>
         <image name="wine" width="25" height="25"/>
     </resources>
     <color key="tintColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

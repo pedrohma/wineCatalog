@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "pasta-dishes.jpg",
+      "filename" : "pasta-dishes-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "pasta-dishes-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "pasta-dishes.png",
       "scale" : "3x"
     }
   ],
