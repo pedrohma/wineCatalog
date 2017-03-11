@@ -99,7 +99,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
         if(searchActive) {
             return secondFiltered.count
         }
-        return arrayWines.count;
+        return 1;
         
     }
     
@@ -113,6 +113,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
         }
         else{
             cell.wineTitleLbl.text = "Search now!"
+            cell.matchesDetailsLbl.text = ""
         }
         
         return cell
