@@ -21,6 +21,8 @@
 		B3FD36561E6E5DF1002F5500 /* DeveloperViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD36551E6E5DF1002F5500 /* DeveloperViewCell.swift */; };
 		B3FD36581E6E5E83002F5500 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD36571E6E5E83002F5500 /* SettingsViewController.swift */; };
 		B3FD365A1E6E6030002F5500 /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD36591E6E6030002F5500 /* Developer.swift */; };
+		B3FD36601E725160002F5500 /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD365F1E725160002F5500 /* SearchViewCell.swift */; };
+		B3FD36621E7251C2002F5500 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD36611E7251C2002F5500 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		B3FD36551E6E5DF1002F5500 /* DeveloperViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperViewCell.swift; sourceTree = "<group>"; };
 		B3FD36571E6E5E83002F5500 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B3FD36591E6E6030002F5500 /* Developer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
+		B3FD365F1E725160002F5500 /* SearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
+		B3FD36611E7251C2002F5500 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 				B3FD36551E6E5DF1002F5500 /* DeveloperViewCell.swift */,
 				B3FD36571E6E5E83002F5500 /* SettingsViewController.swift */,
 				B3FD36591E6E6030002F5500 /* Developer.swift */,
+				B3FD365F1E725160002F5500 /* SearchViewCell.swift */,
+				B3FD36611E7251C2002F5500 /* SearchViewController.swift */,
 			);
 			path = wineCatalog;
 			sourceTree = "<group>";
@@ -284,11 +290,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3FD365A1E6E6030002F5500 /* Developer.swift in Sources */,
+				B3FD36621E7251C2002F5500 /* SearchViewController.swift in Sources */,
 				B3DE876F1E53BD2A00AF3EF2 /* ViewController.swift in Sources */,
 				B3FD36561E6E5DF1002F5500 /* DeveloperViewCell.swift in Sources */,
 				B3DE876D1E53BD2A00AF3EF2 /* AppDelegate.swift in Sources */,
 				B3001B581E5C1724007DB20C /* Wine.swift in Sources */,
 				B3001B541E57E629007DB20C /* MatchesViewCell.swift in Sources */,
+				B3FD36601E725160002F5500 /* SearchViewCell.swift in Sources */,
 				B3DE879B1E5438AA00AF3EF2 /* VinhoCell.swift in Sources */,
 				B3DE879D1E544E5800AF3EF2 /* DetailViewController.swift in Sources */,
 				B3FD36581E6E5E83002F5500 /* SettingsViewController.swift in Sources */,

@@ -38,14 +38,15 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var pageControl: UIPageControl!
     
-    
     @IBOutlet weak var oi: UIImageView!
     @IBOutlet weak var titulo: UILabel!
     
     @IBOutlet weak var detalhe: UILabel!
+    @IBOutlet weak var viewNotRecommended: UIView!
     
     var timer : Timer!
     var update : Int!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,47 +64,59 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         let base: UInt32 = 127397
         
-        if(countryFinal != ""){
-            countryFinal = joinedStrings?.unicodeScalars.flatMap { String.init(UnicodeScalar(base + $0.value)!) }.joined()
+        if(joinedStrings == "All"){
+            countryFinal = "🌐 (Worldwide)" 
         }
         else{
-            countryFinal = "🌐"
+            countryFinal = joinedStrings?.unicodeScalars.flatMap { String.init(UnicodeScalar(base + $0.value)!) }.joined()
         }
         
         wineNameLbl.text = nameWine
         
         countryFlag.text = countryFinal
         
+        if(nameWine == "Tannat"){
+            self.viewNotRecommended.backgroundColor = hexStringToUIColor(hex: "#decce1")
+            self.viewNotRecommended.layer.borderColor = hexStringToUIColor(hex: "#90449f").cgColor
+            self.viewNotRecommended.layer.borderWidth = 5
+            titulo.textColor = hexStringToUIColor(hex: "#90449f")
+        }
+        
         oi.image = imageNotMatchesPassed[update]
         titulo.text = imageNotMatchesTextPassed?[update]
         detalhe.text = detailNotMatchesTextPassed?[update]
+        
+        
         // Do any additional setup after loading the view.
         
     }
     
     func populatePageControl(){
         detalhe.lineBreakMode = NSLineBreakMode.byWordWrapping
-        detalhe.numberOfLines = 3
+        detalhe.numberOfLines = 5
         
         pageControl.numberOfPages = imageNotMatchesPassed.count
         pageControl.pageIndicatorTintColor = UIColor.white
         pageControl.currentPageIndicatorTintColor = hexStringToUIColor(hex: "#b206c7")
         
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(DetailViewController.updateTimer), userInfo: nil, repeats: true)
+        
     }
     
     internal func updateTimer(){
-        if(update < imageNotMatchesPassed.count){
-            pageControl.currentPage = update
-            oi.image = imageNotMatchesPassed[update]
-            titulo.text = imageNotMatchesTextPassed?[update]
-            detalhe.text = detailNotMatchesTextPassed?[update]
-            update = update + 1
-        }
-        else{
-            update = 0
-        }
+            if(update < imageNotMatchesPassed.count){
+                pageControl.currentPage = update
+                oi.image = imageNotMatchesPassed[update]
+                titulo.text = imageNotMatchesTextPassed?[update]
+                detalhe.text = detailNotMatchesTextPassed?[update]
+                update = update + 1
+            }
+            else{
+                update = 0
+            }
+        
     }
+    
     
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
@@ -133,10 +146,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-       super.viewDidAppear(animated)
-        tableView.reloadData()
-    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

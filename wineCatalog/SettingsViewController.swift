@@ -54,11 +54,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func loadDevelopers() -> [Developer]{
-        let pedro = Developer(photo: UIImage(named:"pedro")!, name: "Pedro Henrique de Miranda Arthur", details: "pedrohma95@gmail.com")
-        let joao = Developer(photo: UIImage(named:"joao")!, name: "João Henrique da Silva Arruda", details: "jojoba@teste.com")
+        let pedro = Developer(photo: UIImage(named:"developer")!, name: "Pedro Henrique de Miranda Arthur", details: "pedrohma95@gmail.com")
         
         developers.append(pedro)
-        developers.append(joao)
         
         return developers
     }

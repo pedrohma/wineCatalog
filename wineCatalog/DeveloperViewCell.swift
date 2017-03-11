@@ -16,6 +16,9 @@ class DeveloperViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        imgDeveloper.layer.cornerRadius = 30
+        
         developerName.lineBreakMode = NSLineBreakMode.byWordWrapping
         developerName.numberOfLines = 3
         
