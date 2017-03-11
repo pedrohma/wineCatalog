@@ -70,7 +70,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
     
     func setupFiltered() -> [String]{
         for wine in arrayWines {
-            filtered.append(wine.category)
+            filtered.append(contentsOf: wine.matchesText)
         }
         return filtered
     }
@@ -85,6 +85,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
         secondFiltered = searchText.isEmpty ? filtered : filtered.filter { (item: String) -> Bool in
             // If dataItem matches the searchText, return true to include it
             return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            
         }
         if(secondFiltered.count == 0){
             searchActive = false;
@@ -110,6 +111,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
         if(searchActive){
             
         cell.wineTitleLbl.text = secondFiltered[indexPath.row]
+        cell.matchesDetailsLbl.text = secondFiltered[indexPath.row]
         }
         else{
             cell.wineTitleLbl.text = "Search now!"
@@ -119,6 +121,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
         return cell
         
     }
+
     /*
     // MARK: - Navigation
 

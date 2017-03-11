@@ -351,6 +351,7 @@
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="eKZ-1P-M5O">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <color key="tintColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="7Jc-b9-a7h" id="hyP-HF-NRq"/>
